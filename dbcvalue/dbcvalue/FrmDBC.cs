@@ -67,7 +67,7 @@ namespace dbcvalue
                 //draw layout
                 for (int j = 0; j < 8; j++)
                 {
-                    dgvLayout.Rows[i].Cells[7 - j].Value = str[j];
+                    dgvLayout.Rows[i].Cells[j].Value = str[j];
                 }
             }
         }
@@ -98,7 +98,7 @@ namespace dbcvalue
                         {
                             dgvLayout.Rows[i].Cells[j].Style.BackColor = Color.Yellow;
                             count++;
-                            value += bin[index];
+                            value += dgvLayout.Rows[i].Cells[j].Value.ToString();
                         }
                         else
                         {
@@ -115,10 +115,10 @@ namespace dbcvalue
                     for (int j = 7; j >= 0; j--)
                     {
                         index = i * 8 + 7 - j;
-                        if (index >= startbit && index <= startbit + length)
+                        if (index >= startbit && index <= startbit + length-1)
                         {
                             dgvLayout.Rows[i].Cells[j].Style.BackColor = Color.Yellow;
-                            value = bin[index] + value;
+                            value = dgvLayout.Rows[i].Cells[j].Value.ToString() + value;
                         }
                         else
                         {
