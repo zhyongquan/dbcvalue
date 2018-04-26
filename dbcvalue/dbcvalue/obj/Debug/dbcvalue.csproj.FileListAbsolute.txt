@@ -1,6 +1,5 @@
 D:\用户目录\我的文档\GitHub\dbcvalue\dbcvalue\dbcvalue\bin\Debug\dbcvalue.exe
 D:\用户目录\我的文档\GitHub\dbcvalue\dbcvalue\dbcvalue\bin\Debug\dbcvalue.pdb
-D:\用户目录\我的文档\GitHub\dbcvalue\dbcvalue\dbcvalue\obj\Debug\dbcvalue.csprojResolveAssemblyReference.cache
 D:\用户目录\我的文档\GitHub\dbcvalue\dbcvalue\dbcvalue\obj\Debug\dbcvalue.FrmDBC.resources
 D:\用户目录\我的文档\GitHub\dbcvalue\dbcvalue\dbcvalue\obj\Debug\dbcvalue.Properties.Resources.resources
 D:\用户目录\我的文档\GitHub\dbcvalue\dbcvalue\dbcvalue\obj\Debug\dbcvalue.csproj.GenerateResource.Cache
