@@ -34,7 +34,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.lblData = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.txtValue = new System.Windows.Forms.TextBox();
+            this.cmbSigned = new System.Windows.Forms.ComboBox();
             this.cmbByteOrder = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -61,7 +63,7 @@
             this.grpMessage.Controls.Add(this.lblData);
             this.grpMessage.Location = new System.Drawing.Point(12, 12);
             this.grpMessage.Name = "grpMessage";
-            this.grpMessage.Size = new System.Drawing.Size(667, 268);
+            this.grpMessage.Size = new System.Drawing.Size(667, 263);
             this.grpMessage.TabIndex = 0;
             this.grpMessage.TabStop = false;
             this.grpMessage.Text = "Message";
@@ -78,7 +80,7 @@
             this.dgvLayout.Name = "dgvLayout";
             this.dgvLayout.ReadOnly = true;
             this.dgvLayout.RowTemplate.Height = 23;
-            this.dgvLayout.Size = new System.Drawing.Size(574, 215);
+            this.dgvLayout.Size = new System.Drawing.Size(574, 210);
             this.dgvLayout.TabIndex = 6;
             // 
             // numByte0
@@ -116,7 +118,9 @@
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.txtValue);
+            this.groupBox2.Controls.Add(this.cmbSigned);
             this.groupBox2.Controls.Add(this.cmbByteOrder);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.label2);
@@ -124,22 +128,44 @@
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.numLength);
             this.groupBox2.Controls.Add(this.numStartBit);
-            this.groupBox2.Location = new System.Drawing.Point(12, 286);
+            this.groupBox2.Location = new System.Drawing.Point(12, 281);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(667, 152);
+            this.groupBox2.Size = new System.Drawing.Size(667, 196);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Signal";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(10, 60);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(47, 12);
+            this.label6.TabIndex = 7;
+            this.label6.Text = "Signed:";
             // 
             // txtValue
             // 
             this.txtValue.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtValue.Location = new System.Drawing.Point(81, 121);
+            this.txtValue.Location = new System.Drawing.Point(81, 151);
             this.txtValue.Name = "txtValue";
             this.txtValue.ReadOnly = true;
             this.txtValue.Size = new System.Drawing.Size(574, 21);
             this.txtValue.TabIndex = 6;
+            // 
+            // cmbSigned
+            // 
+            this.cmbSigned.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbSigned.FormattingEnabled = true;
+            this.cmbSigned.Items.AddRange(new object[] {
+            "NO",
+            "YES"});
+            this.cmbSigned.Location = new System.Drawing.Point(81, 57);
+            this.cmbSigned.Name = "cmbSigned";
+            this.cmbSigned.Size = new System.Drawing.Size(53, 20);
+            this.cmbSigned.TabIndex = 5;
+            this.cmbSigned.SelectedIndexChanged += new System.EventHandler(this.cmbSigned_SelectedIndexChanged);
             // 
             // cmbByteOrder
             // 
@@ -157,7 +183,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(10, 124);
+            this.label5.Location = new System.Drawing.Point(10, 154);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(41, 12);
             this.label5.TabIndex = 5;
@@ -166,7 +192,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(10, 92);
+            this.label2.Location = new System.Drawing.Point(10, 122);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(47, 12);
             this.label2.TabIndex = 1;
@@ -175,7 +201,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(10, 60);
+            this.label1.Location = new System.Drawing.Point(10, 90);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(59, 12);
             this.label1.TabIndex = 0;
@@ -192,7 +218,7 @@
             // 
             // numLength
             // 
-            this.numLength.Location = new System.Drawing.Point(81, 90);
+            this.numLength.Location = new System.Drawing.Point(81, 120);
             this.numLength.Maximum = new decimal(new int[] {
             16,
             0,
@@ -215,7 +241,7 @@
             // 
             // numStartBit
             // 
-            this.numStartBit.Location = new System.Drawing.Point(81, 58);
+            this.numStartBit.Location = new System.Drawing.Point(81, 88);
             this.numStartBit.Maximum = new decimal(new int[] {
             32,
             0,
@@ -235,7 +261,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(691, 450);
+            this.ClientSize = new System.Drawing.Size(691, 489);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.grpMessage);
             this.Name = "FrmDBC";
@@ -269,6 +295,8 @@
         private System.Windows.Forms.NumericUpDown numLength;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtValue;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox cmbSigned;
     }
 }
 

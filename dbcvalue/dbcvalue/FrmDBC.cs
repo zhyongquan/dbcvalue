@@ -13,7 +13,7 @@ namespace dbcvalue
     {
         private List<NumericUpDown> listNumByte = new List<NumericUpDown>();
         private byte[] Data = new byte[8];
-        private string bin = "";
+        private string bin = "", m_Value = "";
         public FrmDBC()
         {
             InitializeComponent();
@@ -55,6 +55,7 @@ namespace dbcvalue
             //get data
             MessageDataChanged();
             cmbByteOrder.SelectedIndex = 0;
+            cmbSigned.SelectedIndex = 0;
         }
         private void MessageDataChanged()
         {
@@ -82,7 +83,7 @@ namespace dbcvalue
             int startbit = (int)(numStartBit.Value);
             int length = (int)(numLength.Value);
             int index = 0; int count = 0; bool flag = false;
-            string value = "";
+            m_Value = "";
             if (cmbByteOrder.Text == "MSB")
             {
                 for (int i = 0; i < 8; i++)
@@ -98,7 +99,7 @@ namespace dbcvalue
                         {
                             dgvLayout.Rows[i].Cells[j].Style.BackColor = Color.Yellow;
                             count++;
-                            value += dgvLayout.Rows[i].Cells[j].Value.ToString();
+                            m_Value += dgvLayout.Rows[i].Cells[j].Value.ToString();
                         }
                         else
                         {
@@ -118,7 +119,7 @@ namespace dbcvalue
                         if (index >= startbit && index <= startbit + length-1)
                         {
                             dgvLayout.Rows[i].Cells[j].Style.BackColor = Color.Yellow;
-                            value = dgvLayout.Rows[i].Cells[j].Value.ToString() + value;
+                            m_Value = dgvLayout.Rows[i].Cells[j].Value.ToString() + m_Value;
                         }
                         else
                         {
@@ -127,11 +128,29 @@ namespace dbcvalue
                     }
                 }
             }
-            txtValue.Text = string.Format("bin={0},dec={1}", value, Convert.ToInt32(value, 2));
+            SignalValueChange();
+        }
+        private void SignalValueChange()
+        {
+            if (cmbSigned.Text == "NO")
+            {
+                txtValue.Text = string.Format("bin={0},dec={1}", m_Value, Convert.ToUInt32(m_Value, 2));
+            }
+            else
+            {
+                char sign = m_Value[0];
+                string value = m_Value.PadLeft(32, sign);
+                txtValue.Text = string.Format("bin={0},dec={1}", m_Value, Convert.ToInt32(value, 2));
+            }
         }
         private void cmbByteOrder_SelectedIndexChanged(object sender, EventArgs e)
         {
             SignalDataChange();
+        }
+
+        private void cmbSigned_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SignalValueChange();
         }
 
         private void numStartBit_ValueChanged(object sender, EventArgs e)
