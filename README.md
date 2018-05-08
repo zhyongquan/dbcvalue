@@ -11,3 +11,9 @@ get value from message data according to dbc
 * LSB
 
 ![Image](https://github.com/zhyongquan/dbcvalue/blob/master/dbcvalue/screenshot_lsb.png)
+* unsigned
+
+![Image](https://github.com/zhyongquan/dbcvalue/blob/master/dbcvalue/screenshot_unsigned.png)
+* signed
+
+![Image](https://github.com/zhyongquan/dbcvalue/blob/master/dbcvalue/screenshot_signed.png)
