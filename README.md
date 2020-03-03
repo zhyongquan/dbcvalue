@@ -3,6 +3,8 @@ get value from message data according to dbc
 * Plantform: Visual Studio 2015
 * .NET Framework: 4.0
 
+**download binary file from [release page](https://github.com/zhyongquan/dbcvalue/releases)**
+
 ## Screenshot
 
 * MSB
